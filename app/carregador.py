@@ -31,10 +31,10 @@ URL_DATASET = "https://archive.ics.uci.edu/dataset/275/bike+sharing+dataset"
 # relatorio. Por isso criamos versoes em unidades reais aplicando a
 # transformacao inversa documentada pelos autores do dataset:
 #
-#     temp      = t / 41       ->  t      = temp * 41        (graus Celsius)
-#     atemp     = t / 50       ->  t      = atemp * 50       (graus Celsius)
-#     hum       = h / 100      ->  h      = hum * 100        (percentual)
-#     windspeed = v / 67       ->  v      = windspeed * 67   (km/h)
+# temp      = t / 41       ->  t      = temp * 41        (graus Celsius)
+# atemp     = t / 50       ->  t      = atemp * 50       (graus Celsius)
+# hum       = h / 100      ->  h      = hum * 100        (percentual)
+# windspeed = v / 67       ->  v      = windspeed * 67   (km/h)
 #
 # As colunas originais continuam disponiveis -- as derivadas sao apenas
 # uma reescala LINEAR, entao correlacao e R^2 sao identicos nas duas.

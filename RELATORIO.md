@@ -1,4 +1,4 @@
-# 📝 Relatório da Sistematização
+# Relatório da Sistematização
 ## Laboratório Estatístico Interativo — Matemática e Estatística para Computação
 
 **Equipe:** Gustavo Santana (72650214) · Pedro Oliveira Rocha (`[MATRÍCULA]`) · Pedro Falcão (`[MATRÍCULA]`)
@@ -331,7 +331,7 @@ $\lambda = k = 500$, onde a fórmula ingênua levantaria `OverflowError`.
 Nossa primeira versão atribuía cada valor à sua classe assim:
 
 ```python
-indice = int((valor - li_global) / h)   # ❌
+indice = int((valor - li_global) / h)   #
 ```
 
 O teste contra `numpy.histogram` falhou em **um único caso**: coluna `hum`, com
@@ -691,7 +691,7 @@ captura toda a estrutura dos dados. Confirmação numérica: a média dos resíd
 da ordem de $10^{-13}$ (zero, a menos de erro de ponto flutuante), como a teoria
 exige, mas o desvio padrão é de 165,86.
 
-### ⚠️ Correlação não implica causalidade
+### Correlação não implica causalidade
 
 Encontrar $r = 0{,}4048$ entre temperatura e aluguéis significa apenas que as
 duas variáveis **se movem juntas nos dados observados**. Não prova que uma cause
@@ -704,7 +704,7 @@ controlado ou um modelo causal explícito, não uma reta de regressão.
 
 ## 10. Módulo 6 — As três descobertas
 
-### 1️⃣ A temperatura importa — mas explica menos de 17% dos aluguéis
+### 1. A temperatura importa — mas explica menos de 17% dos aluguéis
 
 **Números:** $r = 0{,}4048$; $R^2 = 0{,}1638$; reta
 $\hat{y} = 9{,}2999x - 0{,}0356$; erro padrão da estimativa 165,87.
@@ -721,7 +721,7 @@ $R^2 = r^2$, um $r$ de 0,40 vira apenas 16% de variação explicada.
 
 ---
 
-### 2️⃣ Dois públicos com comportamentos opostos escondidos no mesmo total
+### 2. Dois públicos com comportamentos opostos escondidos no mesmo total
 
 | Perfil | Média em dia útil | Média em fim de semana/feriado | Variação |
 |---|---|---|---|
@@ -746,7 +746,7 @@ da semana quase não afeta a demanda" — a média total varia apenas −6,1%. �
 
 ---
 
-### 3️⃣ Os dados violam a Poisson por um fator de 174× — e o TCL não se abala
+### 3. Os dados violam a Poisson por um fator de 174× — e o TCL não se abala
 
 | Variável | Índice de dispersão $s^2/\bar{x}$ | Valor sob Poisson |
 |---|---|---|
@@ -773,7 +773,7 @@ precisamos assumir normalidade da população para trabalhar com a média dela.
 
 ---
 
-### 🎁 Achado bônus — a temperatura é a variável mais "bem-comportada" do dataset
+### Achado bônus — a temperatura é a variável mais "bem-comportada" do dataset
 
 Enquanto todas as variáveis de contagem são assimétricas e cheias de outliers, a
 temperatura é o oposto: assimetria de momento de **−0,006** (praticamente zero),

@@ -1,4 +1,4 @@
-# 🎬 Roteiro do vídeo de demonstração (3 a 5 minutos)
+# Roteiro do vídeo de demonstração (3 a 5 minutos)
 
 > **Formato:** compartilhamento de tela com áudio. Todos os integrantes falam.
 > **Antes de gravar:** `streamlit run app.py` já aberto no navegador,
@@ -7,7 +7,7 @@
 
 ---
 
-## ⏱️ 0:00 – 0:25 — Abertura e identificação
+## 0:00 – 0:25 — Abertura e identificação
 
 **Quem fala:** Gustavo
 
@@ -22,7 +22,7 @@ categóricas).
 
 ---
 
-## ⏱️ 0:25 – 1:15 — O núcleo estatístico (a parte que mais vale nota)
+## 0:25 – 1:15 — O núcleo estatístico (a parte que mais vale nota)
 
 **Quem fala:** Pedro Oliveira Rocha
 **Mostrar:** o editor com `minhastats/descritiva.py` aberto.
@@ -59,7 +59,7 @@ def variancia_amostral(dados):
 
 ---
 
-## ⏱️ 1:15 – 1:50 — A validação
+## 1:15 – 1:50 — A validação
 
 **Quem fala:** Pedro Oliveira Rocha
 **Mostrar:** terminal, rodar `pytest`.
@@ -82,7 +82,7 @@ def variancia_amostral(dados):
 
 ---
 
-## ⏱️ 1:50 – 2:30 — Módulo 2: descritiva e interpretação automática
+## 1:50 – 2:30 — Módulo 2: descritiva e interpretação automática
 
 **Quem fala:** Pedro Falcão
 **Mostrar:** Módulo 2 com `Aluguéis de usuários casuais`.
@@ -102,7 +102,7 @@ def variancia_amostral(dados):
 
 ---
 
-## ⏱️ 2:30 – 3:15 — Módulo 3: LGN e TCL
+## 2:30 – 3:15 — Módulo 3: LGN e TCL
 
 **Quem fala:** Gustavo
 **Mostrar:** aba da Lei dos Grandes Números; mexer no slider de repetições.
@@ -122,7 +122,7 @@ def variancia_amostral(dados):
 
 ---
 
-## ⏱️ 3:15 – 3:50 — Módulos 4 e 5
+## 3:15 – 3:50 — Módulos 4 e 5
 
 **Quem fala:** Pedro Falcão
 **Mostrar:** Módulo 4 com `temp_c`, Normal e Uniforme selecionadas.
@@ -146,7 +146,7 @@ fora da faixa para mostrar o alerta de extrapolação.**
 
 ---
 
-## ⏱️ 3:50 – 4:30 — Módulo 6: as descobertas
+## 3:50 – 4:30 — Módulo 6: as descobertas
 
 **Quem fala:** Gustavo
 **Mostrar:** Módulo 6, descoberta 2 (a tabela dos dois perfis).
@@ -167,7 +167,7 @@ fora da faixa para mostrar o alerta de extrapolação.**
 
 ---
 
-## ⏱️ 4:30 – 5:00 — Fechamento
+## 4:30 – 5:00 — Fechamento
 
 **Quem fala:** todos, brevemente
 
@@ -177,7 +177,7 @@ fora da faixa para mostrar o alerta de extrapolação.**
 
 ---
 
-## ✅ Checklist antes de publicar
+## Checklist antes de publicar
 
 - [ ] Vídeo entre 3 e 5 minutos
 - [ ] Todos os integrantes falaram

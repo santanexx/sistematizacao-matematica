@@ -8,14 +8,14 @@ from minhastats import frequencias as mf
 
 
 def renderizar(df):
-    st.header("📦 Módulo 0 — Dados Reais")
+    st.header("Módulo 0 — Dados Reais")
 
     st.markdown(
         f"""
-**Dataset:** Bike Sharing Dataset — *UCI Machine Learning Repository*
-**Fonte original:** [{carregador.URL_DATASET}]({carregador.URL_DATASET})
-**Arquivo utilizado:** `hour.csv` (registros horários de 2011 e 2012 do
-sistema de bicicletas compartilhadas Capital Bikeshare, Washington D.C.)
+- **Dataset:** Bike Sharing Dataset — *UCI Machine Learning Repository*
+- **Fonte original:** [{carregador.URL_DATASET}]({carregador.URL_DATASET})
+- **Arquivo utilizado:** `hour.csv` — registros horários de 2011 e 2012 do
+  sistema de bicicletas compartilhadas Capital Bikeshare, Washington D.C.
 """
     )
 
@@ -41,7 +41,8 @@ sistema de bicicletas compartilhadas Capital Bikeshare, Washington D.C.)
     ]
     st.markdown("#### Conferência dos requisitos do Módulo 0")
     for texto, ok, detalhe in requisitos:
-        st.markdown(f"- {'✅' if ok else '❌'} **{texto}** — {detalhe}")
+        situacao = "ATENDE" if ok else "NÃO ATENDE"
+        st.markdown(f"- **{texto}**: {situacao} — {detalhe}")
 
     # --- Amostra dos dados -------------------------------------------------
     st.markdown("#### Amostra dos dados")

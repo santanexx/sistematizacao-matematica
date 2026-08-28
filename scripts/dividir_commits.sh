@@ -7,45 +7,45 @@
 # distribuídos entre os três integrantes da equipe.
 #
 # COMO FUNCIONA
-#   O conteúdo final do projeto NÃO muda. O script cria um branch órfão
-#   (sem histórico), adiciona os arquivos em ordem de dependência — um
-#   commit por assunto — e no final CONFERE que a árvore resultante é
-#   idêntica à do branch original. Se houver qualquer diferença, ele aborta
-#   e não mexe em nada.
+# O conteúdo final do projeto NÃO muda. O script cria um branch órfão
+# (sem histórico), adiciona os arquivos em ordem de dependência — um
+# commit por assunto — e no final CONFERE que a árvore resultante é
+# idêntica à do branch original. Se houver qualquer diferença, ele aborta
+# e não mexe em nada.
 #
-#   O branch antigo é preservado com o nome `historico-monolitico`, para o
-#   caso de você querer voltar atrás.
+# O branch antigo é preservado com o nome `historico-monolitico`, para o
+# caso de você querer voltar atrás.
 #
 # DOIS MODOS DE USO
 #
-#   1) MODO REVEZAMENTO (recomendado)  ./scripts/dividir_commits.sh --pausar
+# 1) MODO REVEZAMENTO (recomendado)  ./scripts/dividir_commits.sh --pausar
 #
-#      O script para toda vez que a trilha muda de pessoa e espera ENTER.
-#      A ideia é que cada integrante sente na máquina, LEIA os arquivos da
-#      própria trilha e só então libere os commits. O commit sai com o nome
-#      dessa pessoa como autora E como committer, porque foi ela quem
-#      executou.
+# O script para toda vez que a trilha muda de pessoa e espera ENTER.
+# A ideia é que cada integrante sente na máquina, LEIA os arquivos da
+# própria trilha e só então libere os commits. O commit sai com o nome
+# dessa pessoa como autora E como committer, porque foi ela quem
+# executou.
 #
-#   2) MODO DIRETO                     ./scripts/dividir_commits.sh
+# 2) MODO DIRETO                     ./scripts/dividir_commits.sh
 #
-#      Roda tudo de uma vez, atribuindo a autoria de cada commit pela
-#      tabela abaixo (`--author`). Mais rápido, mas quem executa fica
-#      registrado como committer de tudo.
+# Roda tudo de uma vez, atribuindo a autoria de cada commit pela
+# tabela abaixo (`--author`). Mais rápido, mas quem executa fica
+# registrado como committer de tudo.
 #
-#   --sem-scripts  não publica a pasta `scripts/` no histórico novo. Os
-#                  arquivos continuam no disco (como não rastreados) e
-#                  seguem utilizáveis; eles simplesmente não vão para o
-#                  repositório entregue. Sem essa opção, a ferramenta é
-#                  versionada junto — o que é transparente e defensável.
+# --sem-scripts  não publica a pasta `scripts/` no histórico novo. Os
+# arquivos continuam no disco (como não rastreados) e
+# seguem utilizáveis; eles simplesmente não vão para o
+# repositório entregue. Sem essa opção, a ferramenta é
+# versionada junto — o que é transparente e defensável.
 #
-#   O barema prevê arguição individual: cada integrante precisa saber
-#   explicar qualquer parte da solução. As trilhas abaixo foram montadas
-#   para que a divisão faça sentido temático — cada pessoa fica com um
-#   bloco coerente (núcleo + testes + página da interface do mesmo assunto).
+# O barema prevê arguição individual: cada integrante precisa saber
+# explicar qualquer parte da solução. As trilhas abaixo foram montadas
+# para que a divisão faça sentido temático — cada pessoa fica com um
+# bloco coerente (núcleo + testes + página da interface do mesmo assunto).
 #
 # PRÉ-REQUISITOS
-#   - `scripts/equipe.conf` preenchido com nome e e-mail de cada um
-#   - árvore de trabalho limpa (`git status` sem alterações pendentes)
+# - `scripts/equipe.conf` preenchido com nome e e-mail de cada um
+# - árvore de trabalho limpa (`git status` sem alterações pendentes)
 #
 set -euo pipefail
 
@@ -73,8 +73,8 @@ for arg in "$@"; do
             sed -n '3,50p' "${BASH_SOURCE[0]}" | sed 's/^# \?//'
             exit 0 ;;
         *)
-            echo "❌ Argumento desconhecido: $arg"
-            echo "   Use: $0 [--pausar] [--sem-scripts]"
+            echo "ERRO: Argumento desconhecido: $arg"
+            echo "Use: $0 [--pausar] [--sem-scripts]"
             exit 1 ;;
     esac
 done
@@ -84,30 +84,30 @@ done
 # ---------------------------------------------------------------------------
 
 if [[ -n "$(git status --porcelain)" ]]; then
-    echo "❌ A árvore de trabalho tem alterações pendentes."
-    echo "   Faça commit ou stash antes de reescrever o histórico."
+    echo "ERRO: A árvore de trabalho tem alterações pendentes."
+    echo "Faça commit ou stash antes de reescrever o histórico."
     exit 1
 fi
 
 for var in EMAIL_G EMAIL_PR EMAIL_PF; do
     if [[ "${!var}" == *PREENCHER* ]]; then
-        echo "❌ $var ainda está com o valor de exemplo em scripts/equipe.conf."
-        echo "   Preencha o e-mail de cada integrante antes de rodar."
+        echo "ERRO: $var ainda está com o valor de exemplo em scripts/equipe.conf."
+        echo "Preencha o e-mail de cada integrante antes de rodar."
         exit 1
     fi
 done
 
 if git show-ref --verify --quiet "refs/heads/$BRANCH_ANTIGO"; then
-    echo "❌ O branch '$BRANCH_ANTIGO' já existe — parece que o script já rodou."
-    echo "   Se quiser rodar de novo: git branch -D $BRANCH_ANTIGO"
+    echo "ERRO: O branch '$BRANCH_ANTIGO' já existe — parece que o script já rodou."
+    echo "Se quiser rodar de novo: git branch -D $BRANCH_ANTIGO"
     exit 1
 fi
 
 BRANCH_ORIGINAL="$(git branch --show-current)"
 COMMIT_ORIGINAL="$(git rev-parse HEAD)"
 
-echo "📍 Branch atual: $BRANCH_ORIGINAL ($(git rev-list --count HEAD) commits)"
-echo "📍 Árvore final que será preservada: $COMMIT_ORIGINAL"
+echo "Branch atual: $BRANCH_ORIGINAL ($(git rev-list --count HEAD) commits)"
+echo "Árvore final que será preservada: $COMMIT_ORIGINAL"
 echo
 
 # ---------------------------------------------------------------------------
@@ -126,7 +126,7 @@ commitar() {
         G)  nome="$NOME_G";  email="$EMAIL_G"  ;;
         PR) nome="$NOME_PR"; email="$EMAIL_PR" ;;
         PF) nome="$NOME_PF"; email="$EMAIL_PF" ;;
-        *)  echo "❌ Sigla de autor desconhecida: $sigla"; exit 1 ;;
+        *)  echo "ERRO: Sigla de autor desconhecida: $sigla"; exit 1 ;;
     esac
 
     local mensagem
@@ -136,10 +136,10 @@ commitar() {
     if [[ $PAUSAR -eq 1 && "$sigla" != "$ULTIMO_AUTOR" ]]; then
         echo
         echo "══════════════════════════════════════════════════════════════"
-        echo "  👤 Agora é a vez de: $nome"
-        echo "     Revise os arquivos desta trilha antes de continuar."
+        echo "Agora é a vez de: $nome"
+        echo "Revise os arquivos desta trilha antes de continuar."
         echo "══════════════════════════════════════════════════════════════"
-        read -r -p "  Pressione ENTER quando $nome estiver no teclado... "
+        read -r -p "Pressione ENTER quando $nome estiver no teclado... "
         echo
     fi
     ULTIMO_AUTOR="$sigla"
@@ -148,7 +148,7 @@ commitar() {
 
     if [[ $PAUSAR -eq 1 ]]; then
         # quem executa é a própria pessoa: autor E committer são ela
-        GIT_AUTHOR_NAME="$nome"    GIT_AUTHOR_EMAIL="$email" \
+        GIT_AUTHOR_NAME="$nome"GIT_AUTHOR_EMAIL="$email" \
         GIT_COMMITTER_NAME="$nome" GIT_COMMITTER_EMAIL="$email" \
             git commit -q -m "$mensagem"
     else
@@ -163,22 +163,22 @@ commitar() {
 # Cria o branch órfão e esvazia o índice (a árvore de trabalho permanece)
 # ---------------------------------------------------------------------------
 
-echo "🔧 Criando histórico novo..."
+echo "Criando histórico novo..."
 git checkout -q --orphan "__reconstrucao__"
 git rm -rq --cached .
 
 # ===========================================================================
 # TRILHA A — Gustavo Santana
-#   Estatística descritiva (o alicerce do núcleo), simulação de Monte Carlo,
-#   carregamento dos dados e a montagem da aplicação.
+# Estatística descritiva (o alicerce do núcleo), simulação de Monte Carlo,
+# carregamento dos dados e a montagem da aplicação.
 #
 # TRILHA B — Pedro Oliveira Rocha
-#   Associação entre variáveis: covariância, correlação, mínimos quadrados,
-#   a página de regressão, a das descobertas e o relatório.
+# Associação entre variáveis: covariância, correlação, mínimos quadrados,
+# a página de regressão, a das descobertas e o relatório.
 #
 # TRILHA C — Pedro Falcão
-#   Frequências, outliers, distribuições teóricas, toda a camada de gráficos
-#   e as páginas descritiva e de distribuições.
+# Frequências, outliers, distribuições teóricas, toda a camada de gráficos
+# e as páginas descritiva e de distribuições.
 # ===========================================================================
 
 commitar G .gitignore .vscode/settings.json requirements.txt pytest.ini data/hour.csv data/Readme_UCI.txt <<'MSG'
@@ -708,7 +708,7 @@ fi
 # ---------------------------------------------------------------------------
 
 echo
-echo "🔍 Conferindo se o conteudo final ficou identico ao original..."
+echo "Conferindo se o conteudo final ficou identico ao original..."
 
 if [[ $INCLUIR_SCRIPTS -eq 1 ]]; then
     ESCOPO_DIFF=(.)
@@ -719,16 +719,16 @@ else
 fi
 
 if ! git diff --quiet "$COMMIT_ORIGINAL" HEAD -- "${ESCOPO_DIFF[@]}"; then
-    echo "❌ DIFERENCA DETECTADA entre o historico novo e o original."
-    echo "   Nada foi perdido: o branch '$BRANCH_ORIGINAL' continua intacto."
+    echo "ERRO: DIFERENCA DETECTADA entre o historico novo e o original."
+    echo "Nada foi perdido: o branch '$BRANCH_ORIGINAL' continua intacto."
     echo
     git diff --stat "$COMMIT_ORIGINAL" HEAD -- "${ESCOPO_DIFF[@]}"
     echo
-    echo "   Abortando. Volte com:  git checkout $BRANCH_ORIGINAL"
+    echo "Abortando. Volte com:  git checkout $BRANCH_ORIGINAL"
     exit 1
 fi
 
-echo "✅ Arvore identica — nenhum arquivo foi perdido ou alterado."
+echo "OK: arvore identica — nenhum arquivo foi perdido ou alterado."
 
 # ---------------------------------------------------------------------------
 # Troca os branches de lugar
@@ -739,22 +739,22 @@ git branch -m "__reconstrucao__" "$BRANCH_NOVO"
 
 echo
 echo "══════════════════════════════════════════════════════════════"
-echo "  ✅ Historico reconstruido em $CONTADOR commits"
+echo "Historico reconstruido em $CONTADOR commits"
 echo "══════════════════════════════════════════════════════════════"
 echo
 git shortlog -sne "$BRANCH_NOVO"
 echo
-echo "  Branch novo   : $BRANCH_NOVO"
-echo "  Branch antigo : $BRANCH_ANTIGO (preservado; apague quando quiser"
-echo "                  com 'git branch -D $BRANCH_ANTIGO')"
+echo "Branch novo   : $BRANCH_NOVO"
+echo "Branch antigo : $BRANCH_ANTIGO (preservado; apague quando quiser"
+echo "com 'git branch -D $BRANCH_ANTIGO')"
 echo
 if [[ $INCLUIR_SCRIPTS -eq 0 ]]; then
-    echo "  ⚠️  A pasta scripts/ NAO entrou no historico novo (--sem-scripts)."
-    echo "      Os arquivos continuam no disco, agora como nao rastreados."
-    echo "      Confirme com: git status --short"
+    echo "AVISO: a pasta scripts/ NAO entrou no historico novo (--sem-scripts)."
+    echo "Os arquivos continuam no disco, agora como nao rastreados."
+    echo "Confirme com: git status --short"
     echo
 fi
 
-echo "  Confira antes de publicar:"
-echo "    git log --pretty=format:'%h %an %ad %s' --date=short"
-echo "    pytest"
+echo "Confira antes de publicar:"
+echo "git log --pretty=format:'%h %an %ad %s' --date=short"
+echo "pytest"

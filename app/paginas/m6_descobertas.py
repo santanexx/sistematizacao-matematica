@@ -80,7 +80,7 @@ def _calcular(colunas):
 
 
 def renderizar(df):
-    st.header("💡 Módulo 6 — Relatório de Descobertas")
+    st.header("Módulo 6 — Relatório de Descobertas")
     st.markdown(
         "As três descobertas estatísticas mais interessantes que este laboratório "
         "revelou sobre o dataset. **Todos os números abaixo são recalculados ao vivo "
@@ -96,7 +96,7 @@ def renderizar(df):
     # DESCOBERTA 1
     # =======================================================================
     st.markdown("---")
-    st.subheader("1️⃣ A temperatura importa — mas explica menos de 17% dos aluguéis")
+    st.subheader("1. A temperatura importa — mas explica menos de 17% dos aluguéis")
 
     m = dados["modelo_temp"]
     c1, c2, c3, c4 = st.columns(4)
@@ -138,7 +138,7 @@ Comparação com as demais candidatas: umidade **r = {dados['r_hum']:.4f}**
     # DESCOBERTA 2
     # =======================================================================
     st.markdown("---")
-    st.subheader("2️⃣ Dois públicos com comportamentos opostos escondidos no mesmo total")
+    st.subheader("2. Dois públicos com comportamentos opostos escondidos no mesmo total")
 
     perfis = dados["perfis"]
     util = perfis["Dia útil"]
@@ -199,7 +199,7 @@ fim de semana com clima bom.
     # DESCOBERTA 3
     # =======================================================================
     st.markdown("---")
-    st.subheader("3️⃣ Os dados violam a Poisson por um fator de 170× — e o TCL não se abala")
+    st.subheader("3. Os dados violam a Poisson por um fator de 170× — e o TCL não se abala")
 
     c1, c2, c3 = st.columns(3)
     c1.metric("Índice de dispersão de `cnt`", f"{dados['dispersao']['cnt']:.1f}",
@@ -263,7 +263,7 @@ população para trabalhar com a média dela.
     # Achado bonus
     # =======================================================================
     st.markdown("---")
-    with st.expander("🎁 Achado bônus — a temperatura é a variável mais 'bem-comportada' do dataset"):
+    with st.expander(" Achado bônus — a temperatura é a variável mais 'bem-comportada' do dataset"):
         r = dados["resumo_temp"]
         st.markdown(
             f"""

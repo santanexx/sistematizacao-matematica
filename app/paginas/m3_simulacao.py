@@ -20,7 +20,7 @@ from minhastats import simulacao as msim
 
 
 def renderizar(df):
-    st.header("🎲 Módulo 3 — Probabilidade e Simulação de Monte Carlo")
+    st.header("Módulo 3 — Probabilidade e Simulação de Monte Carlo")
 
     aba_lgn, aba_tcl = st.tabs(
         ["(a) Lei dos Grandes Números", "(b) Teorema Central do Limite"]
@@ -349,7 +349,7 @@ seja a forma da distribuição original**:
     )
 
     # --- Interpretacao automatica -----------------------------------------
-    st.markdown("### 🧠 Interpretação automática")
+    st.markdown("### Interpretação automática")
 
     if abs(assimetria_medias) < 0.15:
         veredito = (

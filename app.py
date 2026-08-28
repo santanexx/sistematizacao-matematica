@@ -20,7 +20,7 @@ import streamlit as st
 
 st.set_page_config(
     page_title="Laboratório Estatístico Interativo",
-    page_icon="🧮",
+    page_icon="",
     layout="wide",
     initial_sidebar_state="expanded",
 )
@@ -36,17 +36,17 @@ from app.paginas import (  # noqa: E402
 )
 
 MODULOS = {
-    "📦 Módulo 0 — Dados Reais": m0_dados,
-    "📊 Módulo 2 — Estatística Descritiva": m2_descritiva,
-    "🎲 Módulo 3 — Probabilidade e Simulação": m3_simulacao,
-    "📐 Módulo 4 — Distribuições Teóricas": m4_distribuicoes,
-    "📈 Módulo 5 — Correlação e Regressão": m5_regressao,
-    "💡 Módulo 6 — Descobertas": m6_descobertas,
+    "Módulo 0 — Dados Reais": m0_dados,
+    "Módulo 2 — Estatística Descritiva": m2_descritiva,
+    "Módulo 3 — Probabilidade e Simulação": m3_simulacao,
+    "Módulo 4 — Distribuições Teóricas": m4_distribuicoes,
+    "Módulo 5 — Correlação e Regressão": m5_regressao,
+    "Módulo 6 — Descobertas": m6_descobertas,
 }
 
 
 def main():
-    st.sidebar.title("🧮 Laboratório Estatístico")
+    st.sidebar.title("Laboratório Estatístico")
     st.sidebar.caption(
         "Matemática e Estatística para Computação — Sistematização"
     )
@@ -56,7 +56,7 @@ def main():
     st.sidebar.markdown("---")
     st.sidebar.markdown(
         f"""
-### 🔒 Regra de ouro
+### Regra de ouro
 
 Todas as medidas exibidas vêm do pacote **`minhastats`**, escrito do zero
 em Python puro (só `math` e `random`).
@@ -71,7 +71,7 @@ regra lendo o código-fonte, e 15 executam a interface de ponta a ponta.
 
 ---
 
-### 📦 Dataset
+### Dataset
 
 **Bike Sharing Dataset** — UCI ML Repository
 17.379 registros horários (2011–2012)

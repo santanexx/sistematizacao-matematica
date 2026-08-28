@@ -26,7 +26,7 @@ def _formatar(valor, casas=4):
 
 
 def renderizar(df):
-    st.header("📊 Módulo 2 — Estatística Descritiva Interativa")
+    st.header("Módulo 2 — Estatística Descritiva Interativa")
 
     tipo = st.radio(
         "Tipo de variável",
@@ -183,7 +183,7 @@ def _numerica(df):
         st.success("Nenhum outlier detectado pela regra do IQR.")
 
     # --- Interpretacao automatica -----------------------------------------
-    st.markdown("### 🧠 Interpretação automática")
+    st.markdown("### Interpretação automática")
     st.info(mf.interpretar_distribuicao(dados, nome))
 
 
@@ -246,7 +246,7 @@ def _categorica(df):
         st.pyplot(graficos.pizza_categorica(linhas, f"Composição de {nome}"))
 
     # --- Interpretacao ----------------------------------------------------
-    st.markdown("### 🧠 Interpretação automática")
+    st.markdown("### Interpretação automática")
     modal = max(linhas, key=lambda l: l["fi"])
     menor = min(linhas, key=lambda l: l["fi"])
     razao = modal["fi"] / menor["fi"] if menor["fi"] else float("inf")

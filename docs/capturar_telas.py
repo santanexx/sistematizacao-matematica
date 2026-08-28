@@ -73,7 +73,7 @@ def capturar():
                 arquivo = f"{prefixo}{sufixo}.png"
                 caminho = os.path.join(DESTINO, arquivo)
                 pagina.screenshot(path=caminho)
-                print(f"  ✓ {arquivo} ({os.path.getsize(caminho) // 1024} KB)")
+                print(f"  - {arquivo} ({os.path.getsize(caminho) // 1024} KB)")
 
         navegador.close()
 

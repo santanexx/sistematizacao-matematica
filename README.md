@@ -1,4 +1,4 @@
-# 🧮 Laboratório Estatístico Interativo
+# Laboratório Estatístico Interativo
 
 > Sistematização — **Matemática e Estatística para Computação**
 > Aplicação que carrega um conjunto de dados reais e permite explorá-lo por
@@ -7,7 +7,7 @@
 
 ---
 
-## 👥 Equipe
+## Equipe
 
 | Nome completo | Matrícula |
 |---|---|
@@ -20,7 +20,7 @@
 
 ---
 
-## 🎯 O projeto em uma frase
+## O projeto em uma frase
 
 Um laboratório estatístico interativo em que **nenhuma medida exibida ao
 usuário vem de biblioteca pronta**: média, variância, quartis, correlação de
@@ -42,15 +42,15 @@ numpy/scipy   →  aparecem exclusivamente em tests/, como referência.
 
 ---
 
-## 📦 Dataset
+## Dataset
 
 **Bike Sharing Dataset** — *UCI Machine Learning Repository*
 
 - **Link original:** <https://archive.ics.uci.edu/dataset/275/bike+sharing+dataset>
 - **Arquivo usado:** `hour.csv` (versionado em [`data/hour.csv`](data/hour.csv))
-- **Registros:** 17.379 (exigência: ≥ 1.000) ✅
-- **Variáveis numéricas:** 10 disponíveis na aplicação (exigência: ≥ 4) ✅
-- **Variáveis categóricas:** 7 disponíveis na aplicação (exigência: ≥ 2) ✅
+- **Registros:** 17.379 (exigência: ≥ 1.000)
+- **Variáveis numéricas:** 10 disponíveis na aplicação (exigência: ≥ 4)
+- **Variáveis categóricas:** 7 disponíveis na aplicação (exigência: ≥ 2)
 
 Registros horários do sistema de bicicletas compartilhadas *Capital Bikeshare*
 (Washington D.C., 2011–2012), com clima, calendário e contagem de aluguéis.
@@ -62,7 +62,7 @@ Registros horários do sistema de bicicletas compartilhadas *Capital Bikeshare*
 
 ---
 
-## 🚀 Como executar do zero
+## Como executar do zero
 
 Requisitos: **Python 3.10 ou superior** e `git`.
 
@@ -102,7 +102,7 @@ Saída esperada:
 
 ---
 
-## 📸 A aplicação funcionando
+## A aplicação funcionando
 
 ### Módulo 0 — Dados Reais
 Apresentação do dataset, conferência automática dos requisitos do enunciado,
@@ -149,13 +149,13 @@ As três descobertas estatísticas do laboratório, com todos os números
 
 ---
 
-## 🗂️ Estrutura do repositório
+## Estrutura do repositório
 
 ```
 sistematizacao/
 ├── app.py                       # ponto de entrada do Streamlit
 │
-├── minhastats/                  # ⭐ NÚCLEO ESTATÍSTICO PRÓPRIO (Python puro)
+├── minhastats/                  #  NÚCLEO ESTATÍSTICO PRÓPRIO (Python puro)
 │   ├── __init__.py              #    exporta a API pública do pacote
 │   ├── descritiva.py            #    média, mediana, moda, amplitude,
 │   │                            #    variância e desvio padrão (amostral e
@@ -169,7 +169,7 @@ sistematizacao/
 │   │                            #    Poisson, estimação e qualidade do ajuste
 │   └── simulacao.py             #    Monte Carlo: LGN, TCL e estimativa de π
 │
-├── app/                         # 🖥️ INTERFACE (não calcula nada)
+├── app/                         #  INTERFACE (não calcula nada)
 │   ├── carregador.py            #    lê o CSV, desnormaliza, cataloga variáveis
 │   ├── graficos.py              #    Matplotlib desenha o que o núcleo calculou
 │   └── paginas/                 #    uma página por módulo
@@ -180,7 +180,7 @@ sistematizacao/
 │       ├── m5_regressao.py
 │       └── m6_descobertas.py
 │
-├── tests/                       # ✅ VALIDAÇÃO contra NumPy/SciPy
+├── tests/                       #  VALIDAÇÃO contra NumPy/SciPy
 │   ├── conftest.py              #    fixtures e a justificativa da tolerância
 │   ├── test_descritiva.py       #    200 testes
 │   ├── test_associacao.py       #     54 testes
@@ -210,7 +210,7 @@ sistematizacao/
 
 ---
 
-## 🧪 Como a validação funciona
+## Como a validação funciona
 
 Cada função de `minhastats` é comparada com a referência consolidada em **três
 frentes**:
@@ -253,7 +253,7 @@ alguma delas, o teste quebraria.
 
 ---
 
-## 📄 Documentos
+## Documentos
 
 - **[RELATORIO.md](RELATORIO.md)** — dataset e justificativa, fórmulas em
   notação matemática, decisões de implementação, resultados da validação,
@@ -263,13 +263,13 @@ alguma delas, o teste quebraria.
 - **[docs/roteiro_video.md](docs/roteiro_video.md)** — roteiro do vídeo de
   demonstração.
 
-## 🎬 Vídeo de demonstração
+## Vídeo de demonstração
 
 `[PREENCHER: link do YouTube não listado ou do Google Drive com acesso liberado]`
 
 ---
 
-## 📚 Referência do dataset
+## Referência do dataset
 
 > Fanaee-T, H. & Gama, J. (2013). *Event labeling combining ensemble detectors
 > and background knowledge*. Progress in Artificial Intelligence, 2(2–3),

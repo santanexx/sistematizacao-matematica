@@ -16,7 +16,7 @@ from minhastats import descritiva as md
 
 
 def renderizar(df):
-    st.header("📈 Módulo 5 — Correlação e Regressão Linear")
+    st.header("Módulo 5 — Correlação e Regressão Linear")
 
     variaveis = list(carregador.VARIAVEIS_NUMERICAS.keys())
 
@@ -82,7 +82,7 @@ def renderizar(df):
     # --- Grafico de dispersao com predicao --------------------------------
     st.markdown("### Diagrama de dispersão e reta ajustada")
 
-    st.markdown("#### 🎯 Predição interativa")
+    st.markdown("#### Predição interativa")
     c1, c2 = st.columns([1, 2])
     with c1:
         x_min, x_max = md.minimo(x), md.maximo(x)
@@ -102,7 +102,7 @@ def renderizar(df):
         )
         if valor_x < x_min or valor_x > x_max:
             st.warning(
-                f"⚠️ **Extrapolação.** O valor {valor_x:.4f} está fora da faixa "
+                f"**Extrapolação.** O valor {valor_x:.4f} está fora da faixa "
                 f"observada de X ([{x_min:.4f}; {x_max:.4f}]). A reta só foi "
                 f"ajustada dentro dessa faixa — fora dela a previsão não tem "
                 f"sustentação nos dados."
@@ -119,7 +119,7 @@ def renderizar(df):
     )
 
     # --- Interpretacao dos coeficientes -----------------------------------
-    st.markdown("### 🧠 Interpretação dos coeficientes")
+    st.markdown("### Interpretação dos coeficientes")
 
     passo_unidade = f" {unidade_x}" if unidade_x else " unidade"
     st.markdown(
@@ -130,7 +130,7 @@ def renderizar(df):
 - **Intercepto a = {modelo['a']:.6f}** — é o valor previsto de *{nome_y}* quando
   *{nome_x}* = 0. {"Como X = 0 está dentro da faixa observada, esse valor tem leitura direta."
   if x_min <= 0 <= x_max else
-  f"⚠️ X = 0 está FORA da faixa observada ([{x_min:.4f}; {x_max:.4f}]), então o intercepto é apenas um parâmetro de ajuste da reta, sem significado prático."}
+  f" X = 0 está FORA da faixa observada ([{x_min:.4f}; {x_max:.4f}]), então o intercepto é apenas um parâmetro de ajuste da reta, sem significado prático."}
 - **R² = {modelo['r2']:.6f}** — a variável *{nome_x}* explica
   **{modelo['r2'] * 100:.2f}%** da variação total de *{nome_y}*. Os
   {100 - modelo['r2'] * 100:.2f}% restantes se devem a outros fatores não
@@ -141,7 +141,7 @@ def renderizar(df):
     )
 
     st.error(
-        "⚠️ **Correlação NÃO implica causalidade.** "
+        "**Correlação NÃO implica causalidade.** "
         f"Encontrar r = {r:.4f} entre *{nome_x}* e *{nome_y}* significa apenas que "
         "as duas variáveis se movem juntas nos dados observados. Não prova que uma "
         "cause a outra: a relação pode ser invertida, pode ser mediada por uma "

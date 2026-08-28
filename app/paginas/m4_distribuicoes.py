@@ -18,7 +18,7 @@ from minhastats import frequencias as mf
 
 
 def renderizar(df):
-    st.header("📐 Módulo 4 — Distribuições Teóricas")
+    st.header("Módulo 4 — Distribuições Teóricas")
 
     st.markdown(
         "Escolha uma variável e sobreponha ao seu histograma a curva de uma ou "
@@ -179,7 +179,7 @@ def renderizar(df):
                 )
 
     # --- Diagnostico ------------------------------------------------------
-    st.markdown("### 🧠 Discussão da qualidade do ajuste")
+    st.markdown("### Discussão da qualidade do ajuste")
 
     melhor = min(ajustes.items(), key=lambda item: item[1]["qualidade"]["qui_quadrado"])
     pior = max(ajustes.items(), key=lambda item: item[1]["qualidade"]["qui_quadrado"])
