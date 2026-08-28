@@ -2,14 +2,15 @@
 
 **Disciplina:** Matemática e Estatística para Computação — Sistematização
 **Grupo:** `[PREENCHER]`
-**Integrantes:** Gustavo Santana (`[MATRÍCULA]`), Pedro Oliveira Rocha
+**Integrantes:** Gustavo Santana (72650214), Pedro Oliveira Rocha
 (`[MATRÍCULA]`), Pedro Falcão (`[MATRÍCULA]`)
 
 **Dataset:** Bike Sharing Dataset — UCI Machine Learning Repository
 <https://archive.ics.uci.edu/dataset/275/bike+sharing+dataset>
 17.379 registros horários · 10 variáveis numéricas · 7 categóricas
 
-**Repositório:** `[PREENCHER]` · **Vídeo:** `[PREENCHER]`
+**Repositório:** <https://github.com/santanexx/sistematizacao-matematica>
+**Vídeo:** `[PREENCHER]`
 
 ---
 
@@ -72,7 +73,7 @@ com a média dela.
 ## Reprodutibilidade
 
 ```bash
-git clone <URL>  &&  cd sistematizacao
+git clone https://github.com/santanexx/sistematizacao-matematica.git  &&  cd sistematizacao-matematica
 python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 pytest              # 518 testes

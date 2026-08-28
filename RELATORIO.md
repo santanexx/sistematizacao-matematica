@@ -1,9 +1,9 @@
 # 📝 Relatório da Sistematização
 ## Laboratório Estatístico Interativo — Matemática e Estatística para Computação
 
-**Equipe:** Gustavo Santana · Pedro Oliveira Rocha · Pedro Falcão
+**Equipe:** Gustavo Santana (72650214) · Pedro Oliveira Rocha (`[MATRÍCULA]`) · Pedro Falcão (`[MATRÍCULA]`)
 **Nome do grupo:** `[PREENCHER]`
-**Repositório:** `[PREENCHER: URL do GitHub/GitLab]`
+**Repositório:** <https://github.com/santanexx/sistematizacao-matematica>
 **Vídeo de demonstração:** `[PREENCHER: URL]`
 
 ---

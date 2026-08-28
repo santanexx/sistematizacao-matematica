@@ -11,11 +11,12 @@
 
 | Nome completo | Matrícula |
 |---|---|
-| Gustavo Santana | `[PREENCHER]` |
+| Gustavo Santana | 72650214 |
 | Pedro Oliveira Rocha | `[PREENCHER]` |
 | Pedro Falcão | `[PREENCHER]` |
 
 **Nome do grupo:** `[PREENCHER]`
+**Repositório:** <https://github.com/santanexx/sistematizacao-matematica>
 
 ---
 
@@ -67,8 +68,8 @@ Requisitos: **Python 3.10 ou superior** e `git`.
 
 ```bash
 # 1. clonar o repositório
-git clone <URL-DO-REPOSITORIO>
-cd sistematizacao
+git clone https://github.com/santanexx/sistematizacao-matematica.git
+cd sistematizacao-matematica
 
 # 2. criar e ativar o ambiente virtual
 python3 -m venv .venv
