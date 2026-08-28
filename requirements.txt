@@ -1,0 +1,21 @@
+# ---------------------------------------------------------------------------
+# Laboratorio Estatistico Interativo
+# Versoes fixadas nas quais a aplicacao foi desenvolvida e testada.
+# ---------------------------------------------------------------------------
+
+# Interface interativa
+streamlit==1.62.0
+
+# Carregamento e organizacao dos dados.
+# ATENCAO: o pandas so LE o CSV e monta o DataFrame. Nenhuma medida
+# estatistica exibida ao usuario vem dele -- todas vem de minhastats/.
+pandas==3.0.5
+
+# Graficos (o matplotlib apenas DESENHA: classes, quartis e outliers sao
+# calculados por minhastats e passados prontos para ax.bar e ax.bxp)
+matplotlib==3.11.1
+
+# Usadas EXCLUSIVAMENTE em tests/, como referencia para validar o nucleo
+numpy==2.5.2
+scipy==1.18.1
+pytest==9.1.1

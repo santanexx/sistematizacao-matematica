@@ -1,0 +1,36 @@
+{
+  // O ambiente virtual mora dentro da pasta do projeto e tem ~15.000
+  // arquivos. O git ja o ignora (.gitignore), mas o VSCode continuava
+  // indexando tudo -- o que faz o explorador, a busca e o painel de
+  // controle de codigo parecerem cheios de "arquivos do projeto".
+  // As tres listas abaixo resolvem cada um desses lugares.
+
+  // esconde do explorador de arquivos
+  "files.exclude": {
+    "**/.venv": true,
+    "**/__pycache__": true,
+    "**/.pytest_cache": true,
+    "**/*.pyc": true
+  },
+
+  // tira da busca (Ctrl+Shift+F)
+  "search.exclude": {
+    "**/.venv": true,
+    "**/__pycache__": true,
+    "**/.pytest_cache": true,
+    "**/docs/imagens": true
+  },
+
+  // tira do observador de arquivos (reduz uso de CPU e memoria)
+  "files.watcherExclude": {
+    "**/.venv/**": true,
+    "**/__pycache__/**": true,
+    "**/.pytest_cache/**": true
+  },
+
+  // usa o interpretador do venv do projeto
+  "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+  "python.testing.pytestEnabled": true,
+  "python.testing.pytestArgs": ["tests"],
+  "python.testing.unittestEnabled": false
+}
