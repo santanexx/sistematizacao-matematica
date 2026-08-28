@@ -3,7 +3,7 @@
 **Disciplina:** Matemática e Estatística para Computação — Sistematização
 **Grupo:** `[PREENCHER]`
 **Integrantes:** Gustavo Santana (72650214), Pedro Oliveira Rocha
-(`[MATRÍCULA]`), Pedro Falcão (`[MATRÍCULA]`)
+(72650213), Pedro Falcão (72650212)
 
 **Dataset:** Bike Sharing Dataset — UCI Machine Learning Repository
 <https://archive.ics.uci.edu/dataset/275/bike+sharing+dataset>

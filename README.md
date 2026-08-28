@@ -12,8 +12,8 @@
 | Nome completo | Matrícula |
 |---|---|
 | Gustavo Santana | 72650214 |
-| Pedro Oliveira Rocha | `[PREENCHER]` |
-| Pedro Falcão | `[PREENCHER]` |
+| Pedro Oliveira Rocha | 72650213 |
+| Pedro Falcão | 72650212 |
 
 **Nome do grupo:** `[PREENCHER]`
 **Repositório:** <https://github.com/santanexx/sistematizacao-matematica>
