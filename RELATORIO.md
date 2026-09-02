@@ -2,7 +2,7 @@
 ## Laboratório Estatístico Interativo — Matemática e Estatística para Computação
 
 **Equipe:** Gustavo Santana (72650214) · Pedro Oliveira Rocha (72650213) · Pedro Falcão (72650212)
-**Nome do grupo:** `[PREENCHER]`
+**Nome do grupo:** Grupo Sigma
 **Repositório:** <https://github.com/santanexx/sistematizacao-matematica>
 **Vídeo de demonstração:** `[PREENCHER: URL]`
 

@@ -1,7 +1,7 @@
 # Resumo Executivo — Laboratório Estatístico Interativo
 
 **Disciplina:** Matemática e Estatística para Computação — Sistematização
-**Grupo:** `[PREENCHER]`
+**Nome do grupo:** Grupo Sigma
 **Integrantes:** Gustavo Santana (72650214), Pedro Oliveira Rocha
 (72650213), Pedro Falcão (72650212)
 
