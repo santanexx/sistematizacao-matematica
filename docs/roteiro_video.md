@@ -1,188 +1,159 @@
-# Roteiro do vídeo de demonstração (3 a 5 minutos)
+# Roteiro do vídeo (4 min 30 s)
 
-> **Formato:** compartilhamento de tela com áudio. Todos os integrantes falam.
-> **Antes de gravar:** `streamlit run app.py` já aberto no navegador,
-> terminal em outra aba com o projeto, e o arquivo `minhastats/descritiva.py`
-> aberto no editor.
+**Quem grava:** Gustavo e Rocha.
+**Como:** gravação de tela com áudio. Tudo acontece dentro da aplicação — não precisa abrir editor nem terminal.
 
 ---
 
-## 0:00 – 0:25 — Abertura e identificação
+## Antes de apertar REC
 
-**Quem fala:** Gustavo
-
-> "Olá, professor. Somos o grupo `[NOME]`: Gustavo Santana, Pedro Oliveira Rocha
-> e Pedro Falcão. Este é o nosso Laboratório Estatístico Interativo.
-> Usamos o **Bike Sharing Dataset** do UCI, com **17.379 registros horários** de
-> aluguel de bicicletas em Washington, com clima, calendário e contagem de
-> aluguéis."
-
-**Mostrar:** Módulo 0, com os três cartões de conferência (registros, numéricas,
-categóricas).
+1. Abrir um terminal na pasta do projeto e rodar:
+   ```bash
+   source .venv/bin/activate
+   streamlit run app.py
+   ```
+   Tem que aparecer `(.venv)` no prompt. Sem isso a aplicação não abre.
+2. O navegador abre em `http://localhost:8501`. Deixar em **tela cheia** (F11) e o menu lateral visível.
+3. Clicar uma vez em cada módulo da barra lateral **antes de gravar** — o primeiro carregamento demora uns segundos e o cache resolve.
+4. Deixar o Módulo 0 aberto. Testar o microfone.
+5. Gravador de tela: OBS, o gravador nativo do sistema, ou o do Google Meet — qualquer um serve.
 
 ---
 
-## 0:25 – 1:15 — O núcleo estatístico (a parte que mais vale nota)
+## Bloco 1 — Abertura · 0:00 a 0:20 · **Gustavo**
 
-**Quem fala:** Pedro Oliveira Rocha
-**Mostrar:** o editor com `minhastats/descritiva.py` aberto.
+**Tela:** Módulo 0 — Dados Reais (já aberto).
 
-> "A regra de ouro do projeto: o pacote `minhastats` importa **apenas `math` e
-> `random`** da biblioteca padrão. Nada de NumPy, SciPy ou statistics."
+**Fala:**
+> Olá, professor. Somos o Grupo Sigma: Gustavo Santana, Pedro Rocha e Pedro Falcão.
+> Nosso laboratório usa o dataset Bike Sharing, do repositório UCI: 17 mil registros de aluguel de bicicleta em Washington, com clima, calendário e quantidade de aluguéis por hora.
 
-**Rolar até `variancia_amostral` e explicar o trecho:**
+**Mostrar:** os três cartões grandes (17.379 registros, 10 numéricas, 7 categóricas) e a lista "Conferência dos requisitos" com os ATENDE.
 
-```python
-def variancia_amostral(dados):
-    x = _validar(dados, minimo=2)
-    xbar = media(x)
-    soma_quadrados = 0.0
-    for valor in x:
-        desvio = valor - xbar
-        soma_quadrados += desvio * desvio
-    return soma_quadrados / (len(x) - 1)
-```
+---
 
-> "Esta é a variância amostral: soma dos quadrados dos desvios em relação à
-> média, dividida por n−1 — a correção de Bessel.
+## Bloco 2 — O núcleo e os testes · 0:20 a 1:20 · **Rocha**
+
+**Tela:** clicar em **Módulo 1 — Núcleo Estatístico Próprio** na barra lateral.
+
+**Passo a passo:**
+1. Apontar a tabela "Regra de ouro: o que o núcleo importa".
+2. Rolar até "Código-fonte". No seletor **Função**, escolher `variancia_amostral`.
+3. Depois rolar até o fim e clicar em **Rodar os testes de validação agora**. Esperar uns 5 segundos.
+
+**Fala (enquanto mostra a tabela):**
+> A regra do trabalho é que nenhuma medida venha de biblioteca pronta. Essa tabela é lida do código na hora: o pacote `minhastats` importa só `math` e `random`. Nada de NumPy, nada de SciPy.
+
+**Fala (com o código da variância na tela):**
+> Aqui está a variância amostral. Primeiro calculamos a média. Depois, para cada valor, o desvio em relação à média, elevado ao quadrado, e somamos. Dividimos por n menos 1 — essa é a correção de Bessel.
 >
-> **A decisão importante está no que a gente NÃO fez.** Existe uma forma
-> algebricamente equivalente, `soma de x² menos n vezes x-barra ao quadrado`,
-> que faz tudo numa passada só. Ela é mais rápida, mas quando a média é grande
-> comparada ao desvio, esses dois números ficam enormes e quase iguais — e
-> subtrair um do outro provoca **cancelamento catastrófico**: os dígitos
-> significativos se anulam e sobra ruído.
+> Existe uma fórmula que faz tudo numa passada só: soma dos quadrados menos n vezes a média ao quadrado. A gente não usou. Quando a média é grande, esses dois números ficam enormes e quase iguais, e ao subtrair um do outro os dígitos se cancelam — sobra ruído. Em dois passos é mais lento, mas o resultado é estável.
+
+**Fala (depois de clicar no botão, com o resultado verde na tela):**
+> São 504 testes só do núcleo. Cada função nossa é comparada com o NumPy ou o SciPy com tolerância de um bilionésimo. Todos passando.
+
+---
+
+## Bloco 3 — Estatística descritiva · 1:20 a 1:55 · **Gustavo**
+
+**Tela:** clicar em **Módulo 2 — Estatística Descritiva**.
+
+**Passo a passo:**
+1. No seletor **Variável**, escolher **Aluguéis de usuários casuais**.
+2. Rolar devagar: cartões de medidas → histograma → boxplot → "Detecção de outliers" → "Interpretação automática".
+
+**Fala:**
+> No Módulo 2 o usuário escolhe uma variável e recebe tudo: as medidas, o histograma, o boxplot, a tabela de classes.
 >
-> Por isso calculamos a média primeiro e só depois acumulamos os desvios: duas
-> passadas, mas numericamente estável. E temos um teste que prova isso, com
-> valores da ordem de 10⁶ e desvio de 10⁴."
-
----
-
-## 1:15 – 1:50 — A validação
-
-**Quem fala:** Pedro Oliveira Rocha
-**Mostrar:** terminal, rodar `pytest`.
-
-> "São **521 testes automatizados**. Cada função nossa é comparada com NumPy,
-> SciPy ou statistics em três frentes: casos calculados à mão, o dataset real com
-> 17 mil linhas, e amostras aleatórias em escalas hostis.
+> Um detalhe importante: o boxplot não é o do Matplotlib pronto, porque ele calcularia os quartis sozinho. A gente calcula os quartis e os outliers no nosso pacote e só manda o Matplotlib desenhar.
 >
-> A tolerância é **1e-9**, e ela é justificada: o float de 64 bits tem 16 dígitos
-> significativos, o erro acumulado com 17 mil parcelas chega à ordem de 1e-12, e
-> o NumPy ainda usa somatório pareado, que muda a ORDEM das operações — e soma em
-> ponto flutuante não é associativa. Então 1e-9 fica acima do ruído esperado e
-> muito abaixo de qualquer erro de fórmula."
-
-**Se der tempo, mencionar o bug real:**
-
-> "Esses testes pegaram um bug de verdade: no histograma, `int((x - li)/h)`
-> colocava 5 registros na classe errada, porque a borda 0,85 na verdade vale
-> 0,8500000000000001 em binário. Era invisível no gráfico."
+> E aqui embaixo a aplicação interpreta sozinha: diz que a distribuição é assimétrica à direita, que a mediana descreve melhor que a média, e quantos outliers a regra do IQR encontrou.
 
 ---
 
-## 1:50 – 2:30 — Módulo 2: descritiva e interpretação automática
+## Bloco 4 — Teorema Central do Limite · 1:55 a 2:40 · **Gustavo**
 
-**Quem fala:** Pedro Falcão
-**Mostrar:** Módulo 2 com `Aluguéis de usuários casuais`.
+**Tela:** clicar em **Módulo 3 — Probabilidade e Simulação**, depois na aba **(b) Teorema Central do Limite**.
 
-> "Aqui o usuário escolhe a variável e recebe todas as medidas — todas calculadas
-> pelo nosso pacote. Tabela de frequências, histograma, boxplot e detecção de
-> outliers pelo IQR."
+**Passo a passo:**
+1. Conferir que a variável é **Aluguéis de usuários casuais**.
+2. No controle **Tamanho de cada amostra**, arrastar para **2**. Rolar até o segundo histograma (o das médias).
+3. Voltar ao controle e arrastar para **200**. Rolar de novo até o histograma das médias.
 
-**Apontar o rodapé do boxplot:**
+**Fala (com n = 2):**
+> Essa variável é muito torta — assimetria de 2,5. Sorteando amostras de tamanho 2 e tirando a média, a distribuição das médias ainda é torta.
 
-> "Detalhe: `plt.hist` e `plt.boxplot` **calculam** as classes e os quartis. Se a
-> gente usasse, os números na tela viriam do Matplotlib. Então desenhamos o
-> histograma com `ax.bar` e o boxplot com `ax.bxp`, passando os quartis já
-> calculados pelo `minhastats`."
-
-**Rolar até a interpretação automática e ler o texto gerado.**
-
----
-
-## 2:30 – 3:15 — Módulo 3: LGN e TCL
-
-**Quem fala:** Gustavo
-**Mostrar:** aba da Lei dos Grandes Números; mexer no slider de repetições.
-
-> "O usuário controla o número de repetições e a semente. Note o eixo x
-> logarítmico — a convergência é da ordem de 1 sobre raiz de n, então em escala
-> linear os primeiros lançamentos, os mais instáveis, ficariam espremidos."
-
-**Trocar para a aba do TCL, com `casual`, e variar o tamanho da amostra de 2 → 200.**
-
-> "Aqui é a demonstração mais bonita: `casual` tem assimetria de **2,5**, é
-> violentamente torta. Com amostras de tamanho 2, a distribuição das médias ainda
-> é torta. Aumentando para 200… vira um sino, com assimetria 0,13 — queda de 95%.
+**Fala (com n = 200):**
+> Com amostras de 200, vira um sino. A curva vermelha é a Normal que o teorema prevê, e ela encaixa. A assimetria caiu de 2,5 para 0,13.
 >
-> E não é só visual: o desvio padrão observado bate com sigma sobre raiz de n com
-> menos de 2% de erro."
+> E não é só no desenho: o desvio padrão das médias bate com sigma sobre raiz de n com menos de 2% de erro. O usuário controla o tamanho da amostra e o número de repetições.
 
 ---
 
-## 3:15 – 3:50 — Módulos 4 e 5
+## Bloco 5 — Distribuições teóricas · 2:40 a 3:00 · **Gustavo**
 
-**Quem fala:** Pedro Falcão
-**Mostrar:** Módulo 4 com `temp_c`, Normal e Uniforme selecionadas.
+**Tela:** clicar em **Módulo 4 — Distribuições Teóricas**. Deixar a variável em **Temperatura (°C)** e as candidatas **Normal** e **Uniforme** (já vêm marcadas).
 
-> "Sobrepomos a curva teórica com parâmetros estimados dos dados. A Normal ajusta
-> 3,8 vezes melhor que a Uniforme, mas nenhuma ajusta bem — a curtose é −0,94,
-> platicúrtica, a forma real está entre as duas."
+**Passo a passo:** rolar até o histograma com a curva sobreposta; passar pela aba Normal e pela aba Uniforme.
 
-**Ir para o Módulo 5, temperatura × total de aluguéis.**
-
-> "Correlação de 0,40, reta pelos mínimos quadrados: a cada grau a mais, +9,3
-> aluguéis por hora. Mas o R² é só **0,16** — a temperatura explica 16% da
-> variação. E o gráfico de resíduos mostra um **funil**: heterocedasticidade, a
-> reta não dá conta."
-
-**Digitar um valor no campo de predição e mostrar o Ŷ mudando; digitar um valor
-fora da faixa para mostrar o alerta de extrapolação.**
-
-> "E o alerta obrigatório: correlação não implica causalidade. Temperatura e
-> demanda também variam com a estação e o horário."
+**Fala:**
+> No Módulo 4 a gente sobrepõe uma distribuição teórica ao histograma, com parâmetros estimados dos próprios dados. Para a temperatura, a Normal ajusta quase quatro vezes melhor que a Uniforme, mas nenhuma ajusta perfeito: a curtose é negativa, a distribuição é mais achatada que a Normal. A forma real fica entre as duas.
 
 ---
 
-## 3:50 – 4:30 — Módulo 6: as descobertas
+## Bloco 6 — Regressão · 3:00 a 3:40 · **Rocha**
 
-**Quem fala:** Gustavo
-**Mostrar:** Módulo 6, descoberta 2 (a tabela dos dois perfis).
+**Tela:** clicar em **Módulo 5 — Correlação e Regressão**. Deixar X = **Temperatura (°C)** e Y = **Total de aluguéis** (já vêm assim).
 
-> "A descoberta que mais gostamos: separando por tipo de usuário, os dois
-> públicos reagem ao calendário em **direções opostas**. Casuais sobem 125% no fim
-> de semana; registrados caem 26%. No total, isso quase se cancela — a média cai
-> só 6%.
+**Passo a passo:**
+1. Apontar os cartões: r, R², a equação da reta em verde.
+2. No campo **Digite um valor de X**, apagar e digitar `30`. Mostrar o Ŷ mudando e o X laranja no gráfico.
+3. Digitar `60`. Mostrar o aviso amarelo de extrapolação.
+4. Rolar até o gráfico de resíduos e a caixa vermelha do alerta.
+
+**Fala:**
+> Correlação de 0,40 entre temperatura e aluguéis. A reta é calculada pelos mínimos quadrados que a gente implementou: cada grau a mais, mais nove aluguéis por hora.
 >
-> Se a gente olhasse só o agregado, concluiria que o dia da semana quase não
-> importa. É o paradoxo da agregação."
-
-**Mencionar a descoberta 3:**
-
-> "E a terceira: o índice de dispersão de `cnt` é **174**, sendo que na Poisson
-> ele vale 1. Sobredispersão extrema — Poisson descartada. Mas o TCL continua
-> funcionando perfeitamente mesmo assim."
+> Se eu digito 30 graus, a aplicação prevê o Y. Se eu digito 60, ela avisa que isso está fora dos dados — extrapolação.
+>
+> Mas o R² é só 0,16: a temperatura explica 16% da variação. E o gráfico de resíduos mostra um funil, sinal de que a reta não captura tudo. E o alerta obrigatório: correlação não implica causalidade. Temperatura e demanda também variam com a estação e com o horário.
 
 ---
 
-## 4:30 – 5:00 — Fechamento
+## Bloco 7 — Descobertas · 3:40 a 4:15 · **Rocha**
 
-**Quem fala:** todos, brevemente
+**Tela:** clicar em **Módulo 6 — Descobertas**. Rolar até a **descoberta 2** (a tabela com "Casual" e "Registrado").
 
-> "Repositório público com histórico de commits, README com instruções de
-> execução e RELATORIO.md com todas as fórmulas em notação matemática, a
-> justificativa da tolerância e as limitações que reconhecemos. Obrigado!"
+**Fala:**
+> A descoberta que mais gostamos. Separando por tipo de usuário, os dois públicos vão em direções opostas no fim de semana: os casuais sobem 125%, os registrados caem 26%. No total isso quase se cancela — cai só 6%.
+>
+> Quem olha só o total conclui que o dia da semana não importa. Está errado. É o paradoxo da agregação: lazer e deslocamento para o trabalho são dois fenômenos diferentes escondidos no mesmo número.
 
 ---
 
-## Checklist antes de publicar
+## Bloco 8 — Fechamento · 4:15 a 4:30 · **Gustavo**
 
-- [ ] Vídeo entre 3 e 5 minutos
-- [ ] Todos os integrantes falaram
-- [ ] Um trecho de código do núcleo foi explicado (não só mostrado)
-- [ ] A aplicação apareceu **funcionando** (interações reais, não prints)
-- [ ] Upload como **YouTube não listado** ou **Drive com acesso liberado**
-- [ ] Link testado em **janela anônima**
-- [ ] Link colado no README.md e no PDF de entrega
+**Tela:** voltar ao **Módulo 1** e deixar parado na tabela da regra de ouro.
+
+**Fala:**
+> Tudo isso está no repositório público: código, 521 testes, README com as instruções e o relatório com todas as fórmulas. Obrigado, professor.
+
+Parar a gravação.
+
+---
+
+## Depois de gravar
+
+- [ ] Duração entre 3 e 5 minutos
+- [ ] Subir no YouTube como **Não listado** (não é "Privado" — privado o professor não abre)
+- [ ] Abrir o link numa **janela anônima** e conferir que o vídeo carrega
+- [ ] Mandar o link para fechar o PDF e o README
+
+---
+
+## Se travar na hora
+
+- **A aplicação não abre / erro de módulo:** o venv não está ativo. Fechar o terminal, abrir outro, `source .venv/bin/activate`, rodar de novo.
+- **Um módulo demora para carregar:** normal na primeira vez. Por isso o passo 3 de "Antes de apertar REC".
+- **Errou a fala:** parar, respirar, começar o bloco de novo. Cortar depois é fácil; gravar em blocos separados e juntar também vale.
+- **O botão dos testes não terminou em 5 s:** continuar falando; ele termina em até 15 s.
