@@ -86,6 +86,12 @@ streamlit run app.py
 A aplicação abre em <http://localhost:8501>. O dataset já está no repositório
 (`data/hour.csv`), então **não é preciso baixar nada**.
 
+> **O venv precisa estar ativo** em cada terminal novo (o prompt mostra
+> `(.venv)` na frente). Sem isso, `streamlit` e `pytest` caem no Python do
+> sistema, que não tem `matplotlib` nem `scipy`, e o erro é
+> `ModuleNotFoundError`. Alternativa sem ativar: `.venv/bin/streamlit run app.py`
+> e `.venv/bin/pytest`.
+
 ### Rodar os testes de validação
 
 ```bash
