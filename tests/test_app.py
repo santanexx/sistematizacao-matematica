@@ -37,11 +37,11 @@ def test_aplicacao_sobe_sem_erro():
     assert not at.exception, f"exceção ao subir a aplicação: {at.exception}"
 
 
-def test_navegacao_lista_os_seis_modulos():
+def test_navegacao_lista_os_sete_modulos():
     at = _abrir()
     opcoes = at.radio(key="navegacao").options
-    assert len(opcoes) == 6
-    for numero in ["Módulo 0", "Módulo 2", "Módulo 3", "Módulo 4",
+    assert len(opcoes) == 7
+    for numero in ["Módulo 0", "Módulo 1", "Módulo 2", "Módulo 3", "Módulo 4",
                    "Módulo 5", "Módulo 6"]:
         assert any(numero in o for o in opcoes), f"{numero} ausente na navegação"
 
@@ -50,6 +50,7 @@ def test_navegacao_lista_os_seis_modulos():
     "pagina",
     [
         "Módulo 0 — Dados Reais",
+        "Módulo 1 — Núcleo Estatístico Próprio",
         "Módulo 2 — Estatística Descritiva",
         "Módulo 3 — Probabilidade e Simulação",
         "Módulo 4 — Distribuições Teóricas",
@@ -114,3 +115,15 @@ def test_modulo_4_exige_ao_menos_uma_distribuicao():
     at = _abrir("Módulo 4 — Distribuições Teóricas")
     at.multiselect(key="m4_candidatas").set_value([]).run()
     assert any("ao menos uma" in w.value.lower() for w in at.warning)
+
+
+def test_modulo_1_mostra_codigo_fonte_e_imports():
+    """A pagina do nucleo exibe o codigo real e confirma a regra de ouro."""
+    at = _abrir("Módulo 1 — Núcleo Estatístico Próprio")
+    assert not at.exception
+    textos = " ".join(e.value for e in at.success)
+    assert "math" in textos and "random" in textos, (
+        "a pagina deveria confirmar que o nucleo importa apenas math e random"
+    )
+    codigos = " ".join(c.value for c in at.code)
+    assert "def variancia_amostral" in codigos, "codigo-fonte da funcao nao exibido"

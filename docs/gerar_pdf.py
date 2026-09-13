@@ -125,7 +125,7 @@ Links testados em janela anônima antes do envio. Repositório público; dataset
 <p>Uma aplicação Streamlit em que <b>nenhuma medida exibida ao usuário vem de biblioteca pronta</b>.
 O pacote próprio <span class="mono">minhastats/</span> implementa todo o núcleo estatístico em Python puro
 — importando apenas <span class="mono">math</span> e <span class="mono">random</span> — e é validado contra
-NumPy, SciPy e <span class="mono">statistics</span> por <b>518 testes automatizados</b>, com tolerância relativa
+NumPy, SciPy e <span class="mono">statistics</span> por <b>521 testes automatizados</b>, com tolerância relativa
 de 10<sup>−9</sup> justificada pela análise de erro de ponto flutuante. Até os gráficos respeitam a regra:
 histograma via <span class="mono">ax.bar</span> sobre a nossa tabela de classes e boxplot via
 <span class="mono">ax.bxp</span> com os nossos quartis, porque <span class="mono">plt.hist</span> e
@@ -140,8 +140,9 @@ transformação inversa documentada pelos autores.</p>
 <table>
 <tr><th style="width:24%">Módulo</th><th>Entregue</th></tr>
 <tr><td>0 — Dados reais</td><td>Dataset, conferência automática dos requisitos, dicionário de variáveis.</td></tr>
-<tr><td>1 — Núcleo próprio</td><td>Média, mediana, moda, amplitude, variância e desvio padrão (amostral e populacional),
-  percentis, quartis, IQR, CV, covariância, Pearson, assimetria e curtose — todos testados contra NumPy/SciPy.</td></tr>
+<tr><td>1 — Núcleo próprio</td><td>Biblioteca <span class="mono">minhastats/</span> em Python puro: média, mediana, moda,
+  amplitude, variância e desvio padrão (amostral e populacional), percentis, quartis, IQR, CV, covariância, Pearson,
+  assimetria e curtose. Página própria na aplicação com fórmulas, código-fonte e execução da validação.</td></tr>
 <tr><td>2 — Descritiva</td><td>Tabelas de frequência, medidas, histograma, boxplot, barras, pizza, outliers por IQR
   e interpretação textual automática.</td></tr>
 <tr><td>3 — Simulação</td><td>Lei dos Grandes Números (moeda, dado, π) e Teorema Central do Limite, com repetições,
@@ -176,7 +177,7 @@ desvio observado reproduz σ/√n com erro inferior a 2% em todos os tamanhos te
 <h3>Reprodutibilidade</h3>
 <div class="mono-bloco">git clone {URL_REPO}.git &amp;&amp; cd sistematizacao-matematica<br>
 python3 -m venv .venv &amp;&amp; source .venv/bin/activate &amp;&amp; pip install -r requirements.txt<br>
-pytest &nbsp;# 518 testes &nbsp;&nbsp;·&nbsp;&nbsp; streamlit run app.py</div>
+pytest &nbsp;# 521 testes &nbsp;&nbsp;·&nbsp;&nbsp; streamlit run app.py</div>
 <p style="font-size:9pt">Sementes fixas (42, 2024, 21) tornam todos os números acima reproduzíveis em qualquer máquina.</p>
 
 </div>

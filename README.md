@@ -26,7 +26,7 @@ Um laboratório estatístico interativo em que **nenhuma medida exibida ao
 usuário vem de biblioteca pronta**: média, variância, quartis, correlação de
 Pearson e os coeficientes da regressão são calculados por um pacote próprio
 (`minhastats/`), escrito em Python puro e validado contra NumPy e SciPy por
-**518 testes automatizados**.
+**521 testes automatizados**.
 
 ### A regra de ouro
 
@@ -89,7 +89,7 @@ A aplicação abre em <http://localhost:8501>. O dataset já está no repositór
 ### Rodar os testes de validação
 
 ```bash
-pytest                    # a suíte completa (518 testes)
+pytest                    # a suíte completa (521 testes)
 pytest tests/ -v          # com o nome de cada teste
 pytest tests/test_descritiva.py::test_variancia_vs_numpy_dataset -v
 ```
@@ -97,7 +97,7 @@ pytest tests/test_descritiva.py::test_variancia_vs_numpy_dataset -v
 Saída esperada:
 
 ```
-518 passed
+521 passed
 ```
 
 ---
@@ -109,6 +109,16 @@ Apresentação do dataset, conferência automática dos requisitos do enunciado,
 dicionário de variáveis e distribuição das categóricas.
 
 ![Módulo 0](docs/imagens/modulo0_dados.png)
+
+### Módulo 1 — Núcleo Estatístico Próprio
+O Módulo 1 é a biblioteca `minhastats/`, não uma tela — esta página é uma
+janela para dentro dela: os imports lidos do código-fonte (só `math` e
+`random`), as fórmulas das medidas exigidas, o código de cada função, cálculo
+ao vivo e um botão que executa a validação contra NumPy/SciPy.
+
+![Módulo 1 — regra de ouro e fórmulas](docs/imagens/modulo1_nucleo_1.png)
+![Módulo 1 — código-fonte](docs/imagens/modulo1_nucleo_2.png)
+![Módulo 1 — validação ao vivo](docs/imagens/modulo1_nucleo_3.png)
 
 ### Módulo 2 — Estatística Descritiva Interativa
 Medidas de tendência central e dispersão, histograma, boxplot, tabela de
@@ -174,6 +184,8 @@ sistematizacao/
 │   ├── graficos.py              #    Matplotlib desenha o que o núcleo calculou
 │   └── paginas/                 #    uma página por módulo
 │       ├── m0_dados.py
+│       ├── m1_nucleo.py         #    janela para o núcleo: fórmulas, código,
+│       │                        #    cálculo ao vivo e execução da validação
 │       ├── m2_descritiva.py
 │       ├── m3_simulacao.py
 │       ├── m4_distribuicoes.py
@@ -187,11 +199,11 @@ sistematizacao/
 │   ├── test_frequencias.py      #     63 testes
 │   ├── test_distribuicoes.py    #    140 testes
 │   ├── test_simulacao.py        #     28 testes
-│   ├── test_regra_de_ouro.py    #     18 testes que LEEM o código-fonte e
+│   ├── test_regra_de_ouro.py    #     19 testes que LEEM o código-fonte e
 │   │                            #        falham se alguém importar numpy no
 │   │                            #        núcleo ou chamar .mean()/.corr()
 │   │                            #        na interface
-│   └── test_app.py              #     15 testes de ponta a ponta da interface
+│   └── test_app.py              #     17 testes de ponta a ponta da interface
 │
 ├── data/
 │   ├── hour.csv                 # dataset (17.379 registros)

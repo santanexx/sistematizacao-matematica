@@ -418,10 +418,10 @@ tests/test_associacao.py       54 testes
 tests/test_frequencias.py      63 testes
 tests/test_distribuicoes.py   140 testes
 tests/test_simulacao.py        28 testes
-tests/test_regra_de_ouro.py    18 testes (guarda da regra de ouro)
-tests/test_app.py              15 testes (interface, ponta a ponta)
+tests/test_regra_de_ouro.py    19 testes (guarda da regra de ouro)
+tests/test_app.py              17 testes (interface, ponta a ponta)
 ─────────────────────────────────────────
-                              518 testes — todos passando
+                              521 testes — todos passando
 ```
 
 ### 5.4 Mapa de correspondências
@@ -810,7 +810,7 @@ Todos os números deste relatório podem ser reproduzidos com:
 
 ```bash
 pip install -r requirements.txt
-pytest                    # 518 testes de validação
+pytest                    # 521 testes de validação
 streamlit run app.py      # a aplicação
 ```
 

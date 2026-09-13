@@ -28,6 +28,7 @@ DESTINO = os.path.join(os.path.dirname(os.path.abspath(__file__)), "imagens")
 # diferentes.
 TELAS = [
     ("Módulo 0", "modulo0_dados", [0]),
+    ("Módulo 1", "modulo1_nucleo", [0, 1400, 2800]),
     ("Módulo 2", "modulo2_descritiva", [0, 1400, 2900]),
     ("Módulo 3", "modulo3_simulacao", [0, 1300]),
     ("Módulo 4", "modulo4_distribuicoes", [0, 1200]),

@@ -19,7 +19,7 @@
 Uma aplicação Streamlit em que **nenhuma medida exibida ao usuário vem de
 biblioteca pronta**. O pacote `minhastats/` implementa todo o núcleo estatístico
 em Python puro — importando apenas `math` e `random` — e é validado contra
-NumPy, SciPy e `statistics` por **518 testes automatizados**, com tolerância
+NumPy, SciPy e `statistics` por **521 testes automatizados**, com tolerância
 relativa de $10^{-9}$ justificada pela análise de erro de ponto flutuante.
 
 Cuidado adicional: `plt.hist` e `plt.boxplot` **calculariam** as classes e os
@@ -76,7 +76,7 @@ com a média dela.
 git clone https://github.com/santanexx/sistematizacao-matematica.git  &&  cd sistematizacao-matematica
 python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-pytest              # 518 testes
+pytest              # 521 testes
 streamlit run app.py
 ```
 

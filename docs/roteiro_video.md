@@ -64,7 +64,7 @@ def variancia_amostral(dados):
 **Quem fala:** Pedro Oliveira Rocha
 **Mostrar:** terminal, rodar `pytest`.
 
-> "São **518 testes automatizados**. Cada função nossa é comparada com NumPy,
+> "São **521 testes automatizados**. Cada função nossa é comparada com NumPy,
 > SciPy ou statistics em três frentes: casos calculados à mão, o dataset real com
 > 17 mil linhas, e amostras aleatórias em escalas hostis.
 >

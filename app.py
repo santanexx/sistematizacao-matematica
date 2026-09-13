@@ -28,6 +28,7 @@ st.set_page_config(
 from app import carregador  # noqa: E402  (precisa vir depois de set_page_config)
 from app.paginas import (  # noqa: E402
     m0_dados,
+    m1_nucleo,
     m2_descritiva,
     m3_simulacao,
     m4_distribuicoes,
@@ -37,6 +38,7 @@ from app.paginas import (  # noqa: E402
 
 MODULOS = {
     "Módulo 0 — Dados Reais": m0_dados,
+    "Módulo 1 — Núcleo Estatístico Próprio": m1_nucleo,
     "Módulo 2 — Estatística Descritiva": m2_descritiva,
     "Módulo 3 — Probabilidade e Simulação": m3_simulacao,
     "Módulo 4 — Distribuições Teóricas": m4_distribuicoes,
@@ -65,9 +67,9 @@ NumPy, SciPy e Pandas aparecem apenas para:
 1. **carregar** o CSV (`pandas.read_csv`);
 2. **validar** o núcleo nos testes automatizados.
 
-**518 testes automatizados**: 485 comparam cada função nossa com a
-referência das bibliotecas (tolerância relativa de 1e-9), 18 vigiam esta
-regra lendo o código-fonte, e 15 executam a interface de ponta a ponta.
+**521 testes automatizados**: 485 comparam cada função nossa com a
+referência das bibliotecas (tolerância relativa de 1e-9), 19 vigiam esta
+regra lendo o código-fonte, e 17 executam a interface de ponta a ponta.
 
 ---
 
