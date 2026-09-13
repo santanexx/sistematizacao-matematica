@@ -26,6 +26,8 @@
 
 ## 1. Dataset escolhido e justificativa
 
+![Módulo 0 — apresentação do dataset na aplicação](docs/imagens/modulo0_dados.png)
+
 **Bike Sharing Dataset** — UCI Machine Learning Repository
 <https://archive.ics.uci.edu/dataset/275/bike+sharing+dataset>
 
@@ -128,6 +130,10 @@ tela viriam do Matplotlib, não de `minhastats`. Por isso:
 ---
 
 ## 3. Módulo 1 — O núcleo estatístico e suas fórmulas
+
+![Módulo 1 — regra de ouro lida do código-fonte e fórmulas](docs/imagens/modulo1_nucleo_1.png)
+
+![Módulo 1 — código-fonte e validação ao vivo](docs/imagens/modulo1_nucleo_3.png)
 
 ### 3.1 Tendência central
 
@@ -494,6 +500,12 @@ que a comparação sozinha deixaria passar:
 
 ## 6. Módulo 2 — Estatística descritiva interativa
 
+![Módulo 2 — medidas e histograma](docs/imagens/modulo2_descritiva_1.png)
+
+![Módulo 2 — boxplot, tabela de classes e outliers](docs/imagens/modulo2_descritiva_2.png)
+
+![Módulo 2 — interpretação automática](docs/imagens/modulo2_descritiva_3.png)
+
 O usuário escolhe uma variável (numérica ou categórica) e recebe:
 
 - **medidas completas** — média, mediana, moda, mínimo, máximo, amplitude,
@@ -525,6 +537,10 @@ categoria** — com listas Python e `minhastats`, sem `groupby().mean()`.
 ---
 
 ## 7. Módulo 3 — Probabilidade e simulação
+
+![Módulo 3 — controles e Lei dos Grandes Números](docs/imagens/modulo3_simulacao_1.png)
+
+![Módulo 3 — convergência e confronto com a Binomial](docs/imagens/modulo3_simulacao_2.png)
 
 ### 7.1 Lei dos Grandes Números
 
@@ -595,6 +611,10 @@ $p > 0{,}05$ — as médias não são distinguíveis de uma Normal.
 
 ## 8. Módulo 4 — Distribuições teóricas
 
+![Módulo 4 — parâmetros estimados e χ²](docs/imagens/modulo4_distribuicoes_1.png)
+
+![Módulo 4 — curva teórica sobreposta ao histograma](docs/imagens/modulo4_distribuicoes_2.png)
+
 O usuário escolhe a variável e uma ou mais candidatas entre Normal, Uniforme,
 Exponencial, Poisson e Binomial. A aplicação estima os parâmetros **a partir dos
 dados**, sobrepõe a curva ao histograma e calcula o $\chi^2$ comparativo.
@@ -646,6 +666,10 @@ o assunto da terceira descoberta.
 ---
 
 ## 9. Módulo 5 — Correlação e regressão linear
+
+![Módulo 5 — correlação, reta e R²](docs/imagens/modulo5_regressao_1.png)
+
+![Módulo 5 — dispersão com predição interativa](docs/imagens/modulo5_regressao_2.png)
 
 O usuário escolhe X e Y entre as variáveis numéricas e recebe dispersão,
 correlação, reta, equação, $R^2$, predição interativa e análise de resíduos.
@@ -703,6 +727,8 @@ controlado ou um modelo causal explícito, não uma reta de regressão.
 ---
 
 ## 10. Módulo 6 — As três descobertas
+
+![Módulo 6 — descobertas recalculadas ao vivo](docs/imagens/modulo6_descobertas_1.png)
 
 ### 1. A temperatura importa — mas explica menos de 17% dos aluguéis
 
